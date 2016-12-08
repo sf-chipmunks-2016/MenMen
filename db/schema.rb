@@ -16,21 +16,21 @@ ActiveRecord::Schema.define(version: 20161207231152) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "feedbacks", force: true do |t|
-    t.integer  "session_id"
-    t.integer  "user_id"
-    t.text     "body"
-    t.integer  "rating"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "sessions", force: true do |t|
+  create_table "appointments", force: true do |t|
     t.integer  "mentor_id"
     t.integer  "student_id"
     t.string   "topic"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feedbacks", force: true do |t|
+    t.integer  "appointment_id"
+    t.integer  "user_id"
+    t.text     "body"
+    t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

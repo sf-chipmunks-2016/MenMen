@@ -1,6 +1,6 @@
-class CreateSessions < ActiveRecord::Migration
+class CreateAppointments < ActiveRecord::Migration
   def change
-    create_table :sessions do |t|
+    create_table :appointments do |t|
       t.integer :mentor_id
       t.integer :student_id
       t.string :topic

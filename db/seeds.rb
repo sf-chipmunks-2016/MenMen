@@ -15,15 +15,15 @@ require 'faker'
   }
 
   20.times {
-    Session.create(mentor_id:rand(16..20) ,student_id:rand(1..15), topic: Faker::Hipster.sentence ,start_time: Faker::Time.between(DateTime.now - 1, DateTime.now) ,end_time: Faker::Time.between(DateTime.now - 1, DateTime.now))
+    Appointment.create(mentor_id:rand(16..20) ,student_id:rand(1..15), topic: Faker::Hipster.sentence ,start_time: Faker::Time.between(DateTime.now - 1, DateTime.now) ,end_time: Faker::Time.between(DateTime.now - 1, DateTime.now))
   }
 
   20.times do |i|
     
-    s = Session.find(i+1)
+    s = Appointment.find(i+1)
 
-    Feedback.create(body: Faker::Hipster.paragraph, rating: rand(0..5), session_id: i, user_id: s.mentor_id) 
+    Feedback.create(body: Faker::Hipster.paragraph, rating: rand(0..5), appointment_id: i, user_id: s.mentor_id) 
     
-    Feedback.create(body: Faker::Hipster.paragraph, rating: rand(0..5), session_id: i, user_id: s.student_id) 
+    Feedback.create(body: Faker::Hipster.paragraph, rating: rand(0..5), appointment_id: i, user_id: s.student_id) 
   
   end
